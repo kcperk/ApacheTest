@@ -85,4 +85,4 @@ class Client:
 
 if __name__ == '__main__':
     print ("Starting python script")
-    #c = Client(ip, port)
+    c = Client(ip, port)
