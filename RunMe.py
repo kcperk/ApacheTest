@@ -33,6 +33,7 @@ class Client:
             self.s.connect((self.host, self.port))
 
         except:
+            print ("Retrying connection to", self.host, self.port)
             time.sleep(5)
             self.open_socket()
 
