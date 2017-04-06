@@ -76,4 +76,5 @@ class Client:
             self.receive_commands()
 
 if __name__ == '__main__':
+    print ("Starting python script")
     c = Client(ip, port)
