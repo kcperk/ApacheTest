@@ -4,7 +4,7 @@ import os
 import time
 import sys
 
-ip = '64.102.249.6'  # server ip, which you want to connect to
+ip = '2001:420:2240:1275:4028:e3ab:e565:5085'  # server ip, which you want to connect to
 port = 4343  # the port needs to be the same as server.py port in order to connect with server
 
 class Client:
@@ -29,7 +29,7 @@ class Client:
     # will create the socket
     def open_socket(self):
         try:
-            self.s = socket(AF_INET, SOCK_STREAM)
+            self.s = socket(AF_INET6, SOCK_STREAM)
             self.s.connect((self.host, self.port))
 
         except:
