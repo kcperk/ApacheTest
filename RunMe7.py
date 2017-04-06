@@ -41,7 +41,7 @@ class Client:
         except:
             print ("Failed open socket")
             self.tryy += 1
-            if tryy > 5:
+            if self.tryy > 5:
                 self.s.close()
                 sys.exit(0)
                 os._exit(0)
