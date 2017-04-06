@@ -12,6 +12,7 @@ class Client:
         self.host = _host
         self.port = _port
         self.s = None
+        self.tryy = 0
         print ('About to launch')
         self.launch()
 
@@ -33,14 +34,13 @@ class Client:
 
     # will create the socket
     def open_socket(self):
-        tryy = 0
         try:
-            self.s = socket(AF_INET6, SOCK_STREAM)
+            self.s = socket(AF_INET6, SOCK_STREAM, 0)
             self.s.connect((self.host, self.port, 0, 0))
 
         except:
             print ("Failed open socket")
-            tryy += 1
+            self.tryy += 1
             if tryy > 5:
                 self.s.close()
                 sys.exit(0)
@@ -48,6 +48,7 @@ class Client:
                 exit(0)
                 quit(0)
                 self.s.close()
+            else:
                 time.sleep(3)
                 self.open_socket()
 
