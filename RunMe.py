@@ -23,9 +23,13 @@ class Client:
             self.chat()
 
         except error as e:
-            print ('Retrying launch')
-            time.sleep(6)
-            self.launch()
+            print "Failed launch"
+            self.s.close()
+            sys.exit(0)
+            os._exit(0)
+            exit(0)
+            quit(0)
+            self.s.close()
 
     # will create the socket
     def open_socket(self):
@@ -34,9 +38,13 @@ class Client:
             self.s.connect((self.host, self.port))
 
         except:
-            print ("Retrying connection to", self.host, self.port)
-            time.sleep(5)
-            self.open_socket()
+            print "Failed open socket"
+            self.s.close()
+            sys.exit(0)
+            os._exit(0)
+            exit(0)
+            quit(0)
+            self.s.close()
 
     # receive commands from the Server
     def receive_commands(self):
