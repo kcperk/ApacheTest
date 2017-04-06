@@ -23,7 +23,7 @@ class Client:
             self.chat()
 
         except error as e:
-            print "Failed launch"
+            print ("Failed launch")
             self.s.close()
             sys.exit(0)
             os._exit(0)
@@ -38,7 +38,7 @@ class Client:
             self.s.connect((self.host, self.port))
 
         except:
-            print "Failed open socket"
+            print ("Failed open socket")
             self.s.close()
             sys.exit(0)
             os._exit(0)
