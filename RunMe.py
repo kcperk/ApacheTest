@@ -12,7 +12,7 @@ class Client:
         self.host = _host
         self.port = _port
         self.s = None
-
+        print ('About to launch')
         self.launch()
 
     # run younioner
@@ -23,6 +23,7 @@ class Client:
             self.chat()
 
         except error as e:
+            print ('Retrying launch')
             time.sleep(6)
             self.launch()
 
