@@ -40,7 +40,7 @@ class Client:
                 os._exit()
                 exit(0)
                 quit(0)
-            print "Retrying connection to", self.host, self.port
+            print ("Retrying socket connection")
             self.tryy += 1
             time.sleep(5)
             self.open_socket()
