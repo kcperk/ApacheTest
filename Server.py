@@ -6,7 +6,7 @@ import os
 from queue import Queue
 
 queue = Queue()
-host = '::' # your computer ip
+host = '' # your computer ip
 port = 4343
 
 
@@ -25,8 +25,8 @@ class Server:
     # create socket
     def open_socket(self):
         try:
-            self.s = socket(AF_INET6, SOCK_STREAM, 0)
-            self.s.bind((self.host, self.port, 0, 0))
+            self.s = socket(AF_INET, SOCK_STREAM)
+            self.s.bind((self.host, self.port))
 
             logo = "__   __                _                  ____   \n" \
                    "\ \ / /__  _   _ _ __ (_) ___  _ __   ___|  _ \  \n" \

