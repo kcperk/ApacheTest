@@ -11,7 +11,7 @@ port = 4343
 
 
 class Server:
-    def __init__(self, _host, _port=3434, _max_client=20):
+    def __init__(self, _host, _port=4343, _max_client=20):
 
         # Variables used in this class are here
         self.host = _host
