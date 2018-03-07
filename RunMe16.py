@@ -4,7 +4,7 @@ import os
 import time
 import sys
 
-ip = '24.162.240.46'  # server ip, which you want to connect to
+ip = ''  # server ip, which you want to connect to
 port = 4343  # the port needs to be the same as server.py port in order to connect with server
 
 class Client:
